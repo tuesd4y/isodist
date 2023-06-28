@@ -50,6 +50,8 @@ osrm/
 !osrm/*.md
 
 *.json
+*.geojson
 !package.json
 
 debug
+

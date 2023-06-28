@@ -21,14 +21,17 @@
     "lib"
   ],
   "license": "MIT",
-  "main": "lib/index.js",
+  "main": "server/index.js",
   "engines": {
     "node": ">=4.1.0",
     "npm": ">=2.14.0"
   },
   "scripts": {
     "install": "./script/setup.sh",
-    "start": "NODE_OPTIONS=--max_old_space_size=7500 node server"
+    "start": "NODE_OPTIONS=--max_old_space_size=7500 node server/index.js",
+    "gulp": "gulp",
+    "prepare": "./script/prepare.sh",
+    "isodist": "./bin/isodist.sh"
   },
   "devDependencies": {
     "ava": "^0.15.2",
@@ -90,5 +93,8 @@
       "html",
       "lcov"
     ]
+  },
+  "overrides": {
+    "graceful-fs": "^4.2.11"
   }
 }

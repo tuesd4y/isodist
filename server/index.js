@@ -9,7 +9,7 @@
 'use strict';
 const _            = require('lodash');
 const Path         = require('path');
-const IsoDist      = require('..');
+const IsoDist      = require('../src');
 const Express      = require('express');
 const BodyParser   = require('body-parser');
 const Cors         = require('cors');

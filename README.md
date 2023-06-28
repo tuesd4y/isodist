@@ -20,11 +20,16 @@ Then run the following command to generate `.osrm` files:
 $ npm run prepare
 ```
 
-Finally, you are good to go! In order to generate the graph above, you will need `indiana.osrm` and
-run the following:
+If this doesn't work for you, manually prepare the osrm file using contraction hierarchies or Multy-Level Dijkstra configuration. 
+
+Next, start a local osrm server and note which port it's running on.
+
+
+Finally, you are good to go! If your server is running on port 5000, run the following to generate the isodistance: 
 ```sh
-$ isodist --lon=-86.893386 --lat=40.417202 -s 2 -s 5 -s 7 -r 0.1 -h 0.5 -m indiana
+$ OSRM_HOST=http://localhost:5001 npm run isodist < input.json
 ```
+where input.json is described below
 
 ## Input file
 You can specify all the parameters in an input file that is piped into standard input:
@@ -46,12 +51,12 @@ You can specify all the parameters in an input file that is piped into standard 
 }
 ```
 ```sh
-$ isodist < input.json
+$ npm run isodist < input.json
 ```
 
 Please note that CLI arguments always override values specified in the input file.
 ```sh
-$ isodist --map il < input.json
+$ npm run isodist -- --map il < input.json
 # The above command will use `osrm/il.osrm`
 ```
 
